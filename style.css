@@ -1,0 +1,84 @@
+body, section {width: 100%;height: 100%;}
+
+
+.container {position: relative; width: 100%;height: 100%;}
+
+.box img{width: 50%; position: relative; left: 0;}
+
+
+
+/* 버튼 디자인 속성 */
+.btn_container {
+  position: sticky; width: 100%; height: 100%; top: 900px;
+  z-index: 200;
+}
+.btn_box {
+	position: absolute;
+	width: 400px; height: 150px;
+	background-color: #1644C0;
+	right: 1.5rem;
+	bottom: 3rem;
+  font-family: 'Montserrat';
+  z-index: -2;
+}
+
+.btn_box p {
+  color: #D38098;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 20px;
+}
+.btn_box .progressbar {
+  counter-reset: step;
+  z-index: 6;
+}
+
+.btn_box .progressbar li { 
+  color: #D38098;
+  float: left; 
+  width: 25%;
+  position: relative;
+  text-align: center;
+  z-index: 6;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+.btn_box .progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 30px; height: 30px;
+  line-height: 30px;
+  border: 1px solid white;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  background-color: white;
+  z-index: 500;
+
+}
+/* 바 */
+.btn_box .progressbar li:after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 5px;
+  background-color: white;
+  top: 13px;
+  left: -35%;
+  z-index: -1;
+}
+.btn_box .progressbar li:first-child:after {display: none;}
+
+/* 버튼 액티브 정의 */
+/* 액티브를 나중에 js에 넣어줘서 단계 설정 가능 */
+.btn_box .progressbar li.active {
+  color: white;
+}
+.btn_box .progressbar li.active:before {
+  border-color: #D38098;
+  background-color: #D38098;
+}
+.btn_box .progressbar li.active + li:after {
+  background-color: #D38098;
+}
